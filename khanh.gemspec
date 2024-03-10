@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name        = "khanh"
-    s.version     = "0.0.0"
+    s.version     = "0.0.3"
     s.summary     = "a collection of ruby methods operated in C"
     s.description = "C-ruby from Khanh"
     s.authors     = ["Khanh"]
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
     s.extensions = %w[ext/khanh/extconf.rb]
     
     s.homepage    =
-      "https://rubygems.org/gems/khanh"
+      "https://github.com/khanh-devos/gem-cruby"
     
     s.license       = "MIT"
 end

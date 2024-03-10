@@ -1,4 +1,4 @@
-#include <ruby.h>
+#include <khanh.h>
 
 // declase a new structure(new type) "my_malloc"
 struct my_malloc {
@@ -75,15 +75,27 @@ check(VALUE self) {
   return INT2FIX(ptr->size);
 }
 
+// globalize these variables
+VALUE mKhanh;
+VALUE cCRuby;
 
 void
 Init_khanh(void) {
-  VALUE cMyMalloc;
+  
+  /*
+  * Init main module
+  */
+  mKhanh = rb_define_module("Khanh");
+  cCRuby = rb_define_class_under(mKhanh, "CRuby", rb_cObject);
 
-  cMyMalloc = rb_const_get(rb_cObject, rb_intern("Khanh"));
 
-  rb_define_alloc_func(cMyMalloc, my_malloc_alloc);
-  rb_define_method(cMyMalloc, "initialize", my_malloc_init, 1);
-  rb_define_method(cMyMalloc, "free", my_malloc_release, 0);
-  rb_define_method(cMyMalloc, "check", check, 0);
+  rb_define_alloc_func(cCRuby, my_malloc_alloc);
+  rb_define_method(cCRuby, "initialize", my_malloc_init, 1);
+  rb_define_method(cCRuby, "free", my_malloc_release, 0);
+  rb_define_method(cCRuby, "check", check, 0);
+
+  // run other C modules
+  Init_fibonacy();
+  Init_uppercase();
+  Init_sysinfo();
 }
