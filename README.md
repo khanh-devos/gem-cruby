@@ -47,7 +47,9 @@
 <!-- GETTING STARTED -->
 
 ## 💻 Usage <a name="usage"></a>
-- gem install khanh
+
+- INSTALLATION: gem install khanh
+
 ```
   require "khanh"
 ```
