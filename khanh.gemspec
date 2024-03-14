@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name        = "khanh"
-    s.version     = "0.0.3"
+    s.version     = "0.0.4"
     s.summary     = "a collection of ruby methods operated in C"
     s.description = "C-ruby from Khanh"
     s.authors     = ["Khanh"]
