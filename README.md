@@ -37,6 +37,7 @@
 
 - **Show totalram**
 - **Fibonacci sequence**
+- **Quick sort**
 - **Uppercase**
 - **Uptime**
 - **Loadavg**
@@ -60,6 +61,7 @@
 | 10.bigFib   | array | a Fibonacci sequence with length 10 (max 98)  |
 | Khanh::CRuby.bigFib 10   | array | a Fibonacci sequence with length 10 (max over 100)    |
 | "a1b2c".cUpcase | string | upper all the letters                      |
+| Khanh.sort([array]) | Array | quick-sort ascending an array in c        |
 |             |         |                                               |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -81,9 +83,10 @@
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **Hash code**
-- **Server**
-- **Thread**
-- **DB Fetching**
+- **Puma Server**
+- **Multi-thread**
+- **Ror**
+- **Active Records**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

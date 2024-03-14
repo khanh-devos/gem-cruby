@@ -11,8 +11,7 @@ my_malloc_free(void *p) {
   // create an object "ptr" of struct type "my_malloc"
   struct my_malloc *ptr = p;    
 
-  if (ptr->size > 0)
-    free(ptr->ptr);     // clear out the memory of object "ptr"
+  if (ptr->size > 0) free(ptr->ptr);   // clear out the memory of object "ptr"
 }
 
 static VALUE
@@ -98,4 +97,5 @@ Init_khanh(void) {
   Init_fibonacy();
   Init_uppercase();
   Init_sysinfo();
+  Init_quickSort();
 }

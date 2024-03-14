@@ -3,6 +3,8 @@
 #include <string.h>
 #include <ctype.h> 
 #include <regex.h>
+#include <math.h>
+#include <stdlib.h>
 
 #if 0
   mKhanh = rb_define_module("Khanh");

@@ -7,6 +7,10 @@ module Khanh
         end
 
     end
+
+    def self.sort(arr)
+        qSort(arr.join("-") + "-", arr.length)
+    end
 end
 
 
