@@ -63,7 +63,7 @@
 | 10.bigFib   | array | a Fibonacci sequence with length 10 (max 98)  |
 | Khanh::CRuby.bigFib 10   | array | a Fibonacci sequence with length 10 (max over 100)    |
 | "a1b2c".cUpcase | string | upper all the letters                      |
-| Khanh.sort([array]) | Array | quick-sort ascending an array in c        |
+| Khanh.sort([array]) | Array | quick-sort ascending an array       |
 |             |         |                                               |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -87,8 +87,8 @@
 - **Hash code**
 - **Puma Server**
 - **Multi-thread**
-- **Ror**
-- **Active Records**
+- **Active Record**
+- **Action View**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
