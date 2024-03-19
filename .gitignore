@@ -2,3 +2,6 @@ test123.rb
 *.gem
 *.o
 *.so
+w_digest.c
+a.out
+openssl/
