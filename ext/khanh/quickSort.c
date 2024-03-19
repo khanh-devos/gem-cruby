@@ -1,38 +1,14 @@
 #include <khanh.h>
 
-long structSize = 100;
 
 struct Array {
   int size;
-  long data[100];
+  long* data;
 };
-
 
 void print(struct Array arr) {
   for (int i=0; i < arr.size; ++i) printf("%li ", arr.data[i]);
   printf("(%d) \n", arr.size);
-};
-
-void addStructArray(struct Array* arr1, struct Array arr2, int accumulate) {
-  int start = 0;
-  if (accumulate == 1) start = arr1->size;
-
-  for (int i=0; i < arr2.size; ++i) {
-    arr1->data[start] = arr2.data[i];
-    ++start;
-    arr1->size = start;
-  }
-};
-
-void addArray(struct Array* arr1, int arr2[], int size, int accumulate) {
-  int start = 0;
-  if (accumulate == 1) start = arr1->size;
-
-  for (int i=0; i < size; ++i) {
-    arr1->data[start] = arr2[i];
-    ++start;
-    arr1->size = start;
-  }
 };
 
 void swap(struct Array* arr, int i, int j) {
@@ -81,20 +57,19 @@ void quick_sort(struct Array* arr, int start, int end){
 };
 
 
-struct Array to_array(char cStr[]) {
-  struct Array arr;
-  char temp[strlen(cStr)], check;
-
+void to_array(long* container, char cStr[], int size) {
+  
+  char temp[size], check;
+  
   int j=0, i=0, m=0;
   while (check = cStr[i]) {
     if (check == '-') {
       temp[j] = '\0'; // make an end for a string
 
       char* ptr;
-      arr.data[m] = strtol(temp, &ptr, 10);
-      ++m;
-      arr.size = m;
+      container[m] = strtol(temp, &ptr, 10);
 
+      ++m;
       temp[0] = '\0'; // delete string temp
       j=0;  //reset j
     }
@@ -106,16 +81,24 @@ struct Array to_array(char cStr[]) {
     ++i;
   }
 
-  return arr;
+  
+  
 
 };
 
 
 VALUE prepare(VALUE self, VALUE arrStr, VALUE size) {
-  char* cStr = StringValuePtr(arrStr);  
-  structSize = NUM2ULL(size);  //reset the size of the Struct Array
+  char* cStr = StringValuePtr(arrStr);
+  int arrSize = NUM2ULL(size);
 
-  struct Array arr = to_array(cStr);
+  struct Array arr;
+  long* container;
+  container = (long*) malloc(arrSize * sizeof(long));
+  to_array(container, cStr, arrSize);
+
+  arr.data = &container[0];
+  arr.size = arrSize;
+  
 
   // appy quick sorting
   quick_sort(&arr, 0, arr.size);
@@ -127,6 +110,9 @@ VALUE prepare(VALUE self, VALUE arrStr, VALUE size) {
   for (int i=0; i < arr.size; ++i) {
     rb_ary_push(rbArr, LONG2FIX(arr.data[i]));
   }
+
+  // free malloc
+  free(container);
   
   return rbArr;
 };

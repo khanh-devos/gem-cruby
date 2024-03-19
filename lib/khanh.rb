@@ -15,3 +15,4 @@ end
 
 
 require_relative "khanh/extension"
+require_relative "openssl/digest"

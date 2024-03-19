@@ -87,6 +87,8 @@ Init_khanh(void) {
   mKhanh = rb_define_module("Khanh");
   cCRuby = rb_define_class_under(mKhanh, "CRuby", rb_cObject);
 
+  
+
 
   rb_define_alloc_func(cCRuby, my_malloc_alloc);
   rb_define_method(cCRuby, "initialize", my_malloc_init, 1);
@@ -98,4 +100,6 @@ Init_khanh(void) {
   Init_uppercase();
   Init_sysinfo();
   Init_quickSort();
+  Init_w_digest();
+
 }

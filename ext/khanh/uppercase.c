@@ -20,4 +20,6 @@ void Init_uppercase(void) {
   rb_define_method(rb_string, "cUpcase", string_upper, 0);
   // Now we can call "abc".cUpcase => "ABC". 
   // Same built-in method: "abc".upcase()
+
+
 }
